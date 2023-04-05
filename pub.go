@@ -24,6 +24,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	log.Printf("Connected to NATS\n")
 	for {
 		time.Sleep(time.Second)
 		bufUid := make([]byte, 19)
@@ -44,6 +45,7 @@ func main() {
 		if sc.Publish("orders", buf); err != nil {
 			log.Fatal(err)
 		}
+		log.Printf("Order with uid:%v send to NATS chanel\n", string(bufUid))
 	}
 
 }
