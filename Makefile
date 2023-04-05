@@ -1,2 +1,5 @@
 all:
-	go build -v ./main.go
+	go build -v ./pub.go
+	./pub &
+	go build -v ./cmd/main.go
+	./main
