@@ -36,7 +36,7 @@ func main() {
 	//Тут сервачок пилим
 	var wg sync.WaitGroup
 
-	wg.Add(1)
+	wg.Add(2)
 	go func() {
 		http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 			switch r.Method {
@@ -64,7 +64,7 @@ func main() {
 		log.Fatal(err)
 	}
 	log.Println("Connected to NAT")
-	wg.Add(1)
+	//wg.Add(1)
 
 	go func() {
 		sc.Subscribe("orders", func(msg *stan.Msg) {
